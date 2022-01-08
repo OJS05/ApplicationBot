@@ -6,55 +6,19 @@ import java.io.File;
 
 public class ConfigManager {
 
-    public static final String TOKEN = getOrCreateConfig().getString("botToken");
-    public static final Long CHANNEL_ID = getOrCreateConfig().getLong("channelID");
-    public static final char PREFIX = getOrCreateConfig().getString("prefix").charAt(0);
-    public static final String OWNER_ID = getOrCreateConfig().getString("ownerID");
-    public static final String[] ADMIN_IDS = getOrCreateConfig().getString("adminIDs").split(",");
+    public static final int POLLING_INTERVAL = 60;
 
-    public static final int POLLING_INTERVAL = getOrCreateConfig().getInt("pollingInterval");
-    public static final String APPLICATION_DATABASE = getOrCreateConfig().getString("applicationDatabase");
-    public static final String APPLICATION_USERNAME = getOrCreateConfig().getString("applicationUsername");
-    public static final String APPLICATION_PASSWORD = getOrCreateConfig().getString("applicationPassword");
-    public static final String APPLICATION_HOST = getOrCreateConfig().getString("applicationHost");
-    public static final String APPLICATION_PORT = getOrCreateConfig().getString("applicationPort");
-    public static final String APPLICATION_URL = "jdbc:mysql://" + APPLICATION_HOST + ":" + APPLICATION_PORT + "/" + APPLICATION_DATABASE;
+    public static final String USERNAME = "applications";
+    public static final String PASSWORD = "B7s4T&dK";
 
-    public static final String WHITELIST_DATABASE = getOrCreateConfig().getString("whitelistDatabase");
-    public static final String WHITELIST_USERNAME = getOrCreateConfig().getString("whitelistUsername");
-    public static final String WHITELIST_PASSWORD = getOrCreateConfig().getString("whitelistPassword");
-    public static final String WHITELIST_HOST = getOrCreateConfig().getString("whitelistHost");
-    public static final String WHITELIST_PORT = getOrCreateConfig().getString("whitelistPort");
-    public static final String WHITELIST_URL = "jdbc:mysql://" + WHITELIST_HOST + ":" + WHITELIST_PORT + "/" + WHITELIST_DATABASE;
+    public static final String APPLICATION_URL = "jdbc:postgresql://140.238.197.160:5432/applications";
 
-    public static Config getOrCreateConfig(){
+    public static final String WHITELIST_URL = "jdbc:postgresql://140.238.197.160:5432/whitelist";
 
-        if(!new File("config.json").exists()){
-            Config config = new Config(new File("config.toml"));
-            config.setDefault("botToken", "token");
-            config.setDefault("channelID", "id");
-            config.setDefault("prefix", "!");
-            config.setDefault("owner", "id");
-            config.setDefault("adminIds", new String[]{"1", "2", "3"});
+    public static final String ARCHIVE_URL = "jdbc:postgresql://140.238.197.160:5432/archive";
 
-            config.setDefault("pollingInterval", 60);
-            config.setDefault("applicationDatabase", "database");
-            config.setDefault("applicationUsername", "username");
-            config.setDefault("applicationPassword", "password");
-            config.setDefault("applicationHostname", "hostname");
-            config.setDefault("applicationPort", "port");
-
-            config.setDefault("whitelistDatabase", "database");
-            config.setDefault("whitelistUsername", "username");
-            config.setDefault("whitelistPassword", "password");
-            config.setDefault("whitelistHostname", "hostname");
-            config.setDefault("whitelistPort", "port");
-
-            return config;
-        }else{
-            Config config = new Config(new File("config.toml"));
-            return config;
-        }
-    }
-
+    public static final String TOKEN = "ODk2NzI2MjkwMjU2NzY0OTc5.YWLTbw.w-IRGjbJ2sLfhF-Wgha7kGn6Wec";
+    public static final Long CHANNEL_ID = 825281666636316672L;
+    public static final String[] ADMIN_IDS = {};
 }
+
