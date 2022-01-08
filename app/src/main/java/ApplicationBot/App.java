@@ -10,7 +10,7 @@ public class App {
     public static JDA jda;
 
     public static void main(String[] args) throws LoginException {
-        jda = JDABuilder.createDefault(ConfigManager.TOKEN).addEventListeners(new ReactionListener()).build();
+        jda = JDABuilder.createDefault(args[0]).addEventListeners(new ReactionListener()).build();
         new Poller();
     }
 }
