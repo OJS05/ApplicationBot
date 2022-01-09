@@ -25,7 +25,7 @@ public class ReactionListener extends ListenerAdapter {
                         e.printStackTrace();
                     }
                     try {
-                        if (DatabaseManager.getVotesFor(id) >= 3) {
+                        if (DatabaseManager.getVotesFor(id) >= 1) {
                             DatabaseManager.acceptApplication(id);
                         }
                     } catch (SQLException e) {
@@ -43,7 +43,7 @@ public class ReactionListener extends ListenerAdapter {
                         e.printStackTrace();
                     }
                     try {
-                        if (DatabaseManager.getVotesAgainst(id) >= 3) {
+                        if (DatabaseManager.getVotesAgainst(id) >= 1) {
                             DatabaseManager.rejectApplication(id);
                         }
                     } catch (SQLException e) {
