@@ -139,7 +139,7 @@ public class DatabaseManager {
         try {
             App.jda.getGuildById(804517446353420308L).addRoleToMember(discordId, App.jda.getRoleById(804551357683073054L)).queue();
             App.jda.getGuildById(804517446353420308L).removeRoleFromMember(discordId, App.jda.getRoleById(804551889395646464L)).queue();
-            App.jda.getTextChannelById(929569384878452786L).sendMessage("<@" + discordId + "> has been successfully whitelisted!").queue();
+            App.jda.getTextChannelById(929569384878452786L).sendMessage("<@" + discordId + "> has been successfully whitelisted! Welcome to Purple!").queue();
         } catch (NullPointerException e){
             String finalUsername = username;
             App.jda.retrieveUserById(598085666538258432L).queue(user -> {
@@ -167,7 +167,6 @@ public class DatabaseManager {
 
         getOrCreateApplicationConnection().update("DELETE FROM applications WHERE id = '" + id + "'");
         getOrCreateArchiveConnection().update("INSERT INTO archive(username, age, reason, status) VALUES ('" + username + "','" + age + "','" + reason + "','rejected')");
-        App.jda.getTextChannelById(929569384878452786L).sendMessage(username + " has been rejected!").queue();
         App.jda.retrieveUserById(discordId).queue(user -> {
             user.openPrivateChannel().queue(channel -> {
                 channel.sendMessage("Your application has been rejected!\nFeel free to try again via the website with a little more effort...").queue();
