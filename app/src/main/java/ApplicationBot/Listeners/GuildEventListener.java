@@ -5,7 +5,7 @@ import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class GuildEventListener extends ListenerAdapter {
-
+    @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
         System.out.println("eventjoin");
         long userId = event.getUser().getIdLong();

@@ -242,7 +242,7 @@
       <updated>1638741782348</updated>
       <workItem from="1638741786395" duration="13443000" />
       <workItem from="1641616579440" duration="2116000" />
-      <workItem from="1641618733504" duration="16085000" />
+      <workItem from="1641618733504" duration="16824000" />
     </task>
     <task id="LOCAL-00001" summary="polish and add postgres">
       <created>1641628772003</created>
@@ -293,7 +293,21 @@
       <option name="project" value="LOCAL" />
       <updated>1641720207668</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="test">
+      <created>1641730715872</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1641730715873</updated>
+    </task>
+    <task id="LOCAL-00009" summary="test">
+      <created>1641730908519</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1641730908519</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,6 +317,7 @@
     <MESSAGE value="polish and add postgres" />
     <MESSAGE value="add discord_id column" />
     <MESSAGE value="fix silly reaction check" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix silly reaction check" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
 </project>
