@@ -142,7 +142,11 @@ public class DatabaseManager {
             App.jda.getTextChannelById(929569384878452786L).sendMessage("<@" + discordId + "> has been successfully whitelisted!").queue();
         } catch (NullPointerException e){
             String finalUsername = username;
-            App.jda.getUserById(598085666538258432L).openPrivateChannel().queue(channel -> channel.sendMessage("Error updating roles for " + finalUsername + "!").queue());
+            App.jda.retrieveUserById(598085666538258432L).queue(user -> {
+                user.openPrivateChannel().queue(channel -> {
+                   channel.sendMessage("Error updating roles for " + finalUsername + "! Please manually add them to the whitelist.").queue();
+                });
+            });
         }
 
     }
@@ -164,7 +168,11 @@ public class DatabaseManager {
         getOrCreateApplicationConnection().update("DELETE FROM applications WHERE id = '" + id + "'");
         getOrCreateArchiveConnection().update("INSERT INTO archive(username, age, reason, status) VALUES ('" + username + "','" + age + "','" + reason + "','rejected')");
         App.jda.getTextChannelById(929569384878452786L).sendMessage(username + " has been rejected!").queue();
-        App.jda.getUserById(discordId).openPrivateChannel().queue(channel -> channel.sendMessage("Your application has been rejected!\nFeel free to try again via the website with a little more effort...").queue());
+        App.jda.retrieveUserById(discordId).queue(user -> {
+            user.openPrivateChannel().queue(channel -> {
+                channel.sendMessage("Your application has been rejected!\nFeel free to try again via the website with a little more effort...").queue();
+            });
+        });
     }
 
     public static boolean hasVoted(int id, String voterId) throws SQLException {

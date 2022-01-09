@@ -27,6 +27,7 @@ public class ReactionListener extends ListenerAdapter {
                     try {
                         if (DatabaseManager.getVotesFor(id) >= 1) {
                             DatabaseManager.acceptApplication(id);
+                            message.delete().queue();
                         }
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -45,6 +46,7 @@ public class ReactionListener extends ListenerAdapter {
                     try {
                         if (DatabaseManager.getVotesAgainst(id) >= 1) {
                             DatabaseManager.rejectApplication(id);
+                            message.delete().queue();
                         }
                     } catch (SQLException e) {
                         e.printStackTrace();
