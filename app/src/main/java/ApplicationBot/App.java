@@ -12,7 +12,10 @@ public class App {
 
     public static void main(String[] args) throws LoginException {
         System.out.println(args[0]);
-        jda = JDABuilder.createDefault(args[0]).addEventListeners(new ReactionListener(), new GuildEventListener()).build();
+        jda = JDABuilder.createDefault(args[0]).build();
+        jda.addEventListener(new GuildEventListener());
+        jda.addEventListener(new ReactionListener());
+        System.out.println("debug");
         new Poller();
     }
 }
