@@ -8,7 +8,7 @@ public class GuildEventListener extends ListenerAdapter {
     @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
         System.out.println("eventjoin");
-        long userId = event.getUser().getIdLong();
+        String userId = event.getMember().getUser().getId();
         long guildId = event.getGuild().getIdLong();
         JDA bot = event.getJDA();
         bot.getGuildById(guildId).addRoleToMember(userId, bot.getRoleById(804551889395646464L)).queue();
