@@ -54,7 +54,7 @@ public class DatabaseManager {
                     .addField("Why do you want to play on Purple?", resultSet.getString("reason"), false);
 
             getOrCreateApplicationConnection().updateAsync("UPDATE applications SET checked = '1' WHERE id = '" + resultSet.getString("id") + "'");
-            App.jda.getTextChannelById(ConfigManager.CHANNEL_ID.toString()).sendMessageEmbeds(eb.build()).queue(message -> {
+            App.jda.getTextChannelById(929570131980460042L).sendMessageEmbeds(eb.build()).queue(message -> {
                 message.addReaction("U+2705").queue();
                 message.addReaction("U+274C").queue();
             });
@@ -122,11 +122,13 @@ public class DatabaseManager {
         ResultSet resultSet = getOrCreateApplicationConnection().query("SELECT * FROM applications WHERE id =" + id);
         String username = "";
         int age = 0;
+        long discordId = 0;
         String reason = "";
         while (resultSet.next()) {
             username = resultSet.getString("username");
             age = resultSet.getInt("age");
             reason = resultSet.getString("reason");
+            discordId = Long.parseLong(resultSet.getString("discord_id"));
         }
         resultSet.close();
 
@@ -134,22 +136,35 @@ public class DatabaseManager {
         getOrCreateArchiveConnection().update("INSERT INTO archive(username, age, reason, status) VALUES ('" + username + "','" + age + "','" + reason + "','accepted')");
         getOrCreateWhitelistConnection().update("INSERT INTO whitelist (username, uuid) VALUES ('" + username + "', '" + getUuid(username) + "')");
 
+        try {
+            App.jda.getGuildById(804517446353420308L).addRoleToMember(discordId, App.jda.getRoleById(804551357683073054L)).queue();
+            App.jda.getGuildById(804517446353420308L).removeRoleFromMember(discordId, App.jda.getRoleById(804551889395646464L)).queue();
+            App.jda.getTextChannelById(929569384878452786L).sendMessage("<@" + discordId + "> has been successfully whitelisted!").queue();
+        } catch (NullPointerException e){
+            String finalUsername = username;
+            App.jda.getUserById(598085666538258432L).openPrivateChannel().queue(channel -> channel.sendMessage("Error updating roles for " + finalUsername + "!").queue());
+        }
+
     }
 
     public static void rejectApplication(int id) throws SQLException {
         ResultSet resultSet = getOrCreateApplicationConnection().query("SELECT * FROM applications WHERE id =" + id);
         String username = "";
         int age = 0;
+        long discordId = 0;
         String reason = "";
         while (resultSet.next()) {
             username = resultSet.getString("username");
             age = resultSet.getInt("age");
             reason = resultSet.getString("reason");
+            discordId = resultSet.getLong("discord_id");
         }
         resultSet.close();
 
         getOrCreateApplicationConnection().update("DELETE FROM applications WHERE id = '" + id + "'");
         getOrCreateArchiveConnection().update("INSERT INTO archive(username, age, reason, status) VALUES ('" + username + "','" + age + "','" + reason + "','rejected')");
+        App.jda.getTextChannelById(929569384878452786L).sendMessage(username + " has been rejected!").queue();
+        App.jda.getUserById(discordId).openPrivateChannel().queue(channel -> channel.sendMessage("Your application has been rejected!\nFeel free to try again via the website with a little more effort...").queue());
     }
 
     public static boolean hasVoted(int id, String voterId) throws SQLException {

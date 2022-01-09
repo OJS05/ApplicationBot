@@ -17,7 +17,6 @@ public class ConfigManager {
 
     public static final String ARCHIVE_URL = "jdbc:postgresql://postgres:5432/archive";
 
-    public static final Long CHANNEL_ID = 825281666636316672L;
     public static final String[] ADMIN_IDS = {};
 }
 
