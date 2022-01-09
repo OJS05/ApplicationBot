@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 public class GuildEventListener extends ListenerAdapter {
 
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
+        System.out.println("eventjoin");
         long userId = event.getUser().getIdLong();
         long guildId = event.getGuild().getIdLong();
         JDA bot = event.getJDA();
