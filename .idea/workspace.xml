@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4bc3240-ffd2-46be-b028-e4512507b85f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ApplicationBot/Listeners/GuildEventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ApplicationBot/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ApplicationBot/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ApplicationBot/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ApplicationBot/ConfigManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ApplicationBot/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ApplicationBot/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ApplicationBot/Listeners/ReactionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ApplicationBot/Listeners/ReactionListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +241,7 @@
       <updated>1638741782348</updated>
       <workItem from="1638741786395" duration="13443000" />
       <workItem from="1641616579440" duration="2116000" />
-      <workItem from="1641618733504" duration="13663000" />
+      <workItem from="1641618733504" duration="14941000" />
     </task>
     <task id="LOCAL-00001" summary="polish and add postgres">
       <created>1641628772003</created>
@@ -283,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641649673672</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add discord_id column">
+      <created>1641718763621</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1641718763621</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,6 +293,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="polish and add postgres" />
-    <option name="LAST_COMMIT_MESSAGE" value="polish and add postgres" />
+    <MESSAGE value="add discord_id column" />
+    <option name="LAST_COMMIT_MESSAGE" value="add discord_id column" />
   </component>
 </project>
